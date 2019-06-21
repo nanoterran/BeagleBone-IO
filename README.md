@@ -1,2 +1,2 @@
 # BeagleBone-IO
-Lua library for BeagleBone Black
+Lua library for interfacing with BeagleBone Black GPIOs
