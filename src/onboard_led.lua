@@ -9,7 +9,7 @@ local function write_to_file(path, value)
 end
 
 return function(led_number)
-  local led = const.led_path .. led_number
+  local led = const.led_path .. tostring(led_number)
 
   local function turn_on()
     write_to_file(led .. '/brightness', '1')
@@ -19,8 +19,13 @@ return function(led_number)
     write_to_file(led .. '/brightness', '0')
   end
 
+  local function heartbeat()
+    write_to_file(led .. '/trigger' , 'heartbeat')
+  end
+
   return {
     turn_on = turn_on,
-    turn_off = turn_off
+    turn_off = turn_off,
+    heartbeat = heartbeat
   }
 end
